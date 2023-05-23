@@ -1,0 +1,25 @@
+# Print the coeff. of determination for mdl_all_ages
+print("R-squared for mdl_all_ages: ", mdl_all_ages.rsquared)
+
+# Print the coeff. of determination for mdl_0_to_15
+print("R-squared for mdl_0_to_15: ", mdl_0_to_15.rsquared)
+
+# Print the coeff. of determination for mdl_15_to_30
+print("R-squared for mdl_15_to_30: ", mdl_15_to_30.rsquared)
+
+# Print the coeff. of determination for mdl_30_to_45
+print("R-squared for mdl_30_to_45: ", mdl_30_to_45.rsquared)
+
+
+
+# Print the RSE for mdl_all_ages
+print("RSE for mdl_all_ages: ", np.sqrt(mdl_all_ages.mse_resid))
+
+# Print the RSE for mdl_0_to_15
+print("RSE for mdl_0_to_15: ", np.sqrt(mdl_0_to_15.mse_resid))
+
+# Print the RSE for mdl_15_to_30
+print("RSE for mdl_15_to_30: ", np.sqrt(mdl_15_to_30.mse_resid))
+
+# Print the RSE for mdl_30_to_45
+print("RSE for mdl_30_to_45: ",np.sqrt(mdl_30_to_45.mse_resid))
