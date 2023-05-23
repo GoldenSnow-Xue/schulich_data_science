@@ -1,0 +1,18 @@
+# Fit linear regression of price vs. opening bid and auction type, with an interaction, without intercept
+mdl_price_vs_both = ols("price ~ auction_type + auction_type:openbid + 0", data=auctions).fit()
+
+# See the result
+print(mdl_price_vs_both.params)
+
+
+
+# Fit linear regression of price vs. opening bid and auction type, with an interaction, without intercept
+mdl_price_vs_both = ols("price ~ auction_type + openbid:auction_type + 0", data=auctions).fit()
+
+# Using auctions, plot price vs. opening bid colored by auction type as a scatter plot with linear regr'n trend lines
+sns.lmplot(x="openbid", y="price", data=auctions, hue="auction_type", ci=None)
+
+# Show the plot
+plt.show()
+
+
