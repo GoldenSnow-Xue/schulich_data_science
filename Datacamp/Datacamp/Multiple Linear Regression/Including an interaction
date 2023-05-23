@@ -1,0 +1,16 @@
+# Convert to mdl_price_vs_conv_dist_inter
+mdl_price_vs_conv_dist_inter = ols("price_twd_msq ~ n_convenience * sqrt_dist_to_mrt_m", data=taiwan_real_estate).fit()
+
+# Use mdl_price_vs_conv_dist_inter to make predictions
+n_convenience = np.arange(0, 11)
+sqrt_dist_to_mrt_m = np.arange(0, 81, 10)
+p = product(n_convenience, sqrt_dist_to_mrt_m)
+explanatory_data = pd.DataFrame(p, columns=["n_convenience", "sqrt_dist_to_mrt_m"])
+prediction_data = explanatory_data.assign(
+    price_twd_msq = mdl_price_vs_conv_dist_inter.predict(explanatory_data))
+
+sns.scatterplot(x="n_convenience", y="sqrt_dist_to_mrt_m", data=taiwan_real_estate, hue="price_twd_msq")
+
+sns.scatterplot(x="n_convenience", y="sqrt_dist_to_mrt_m", data=prediction_data, hue="price_twd_msq",legend=False,marker="s")
+
+plt.show()
