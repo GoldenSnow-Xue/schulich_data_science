@@ -1,0 +1,33 @@
+# Extract the model coefficients, coeffs
+coeffs = mdl_price_vs_both.params
+
+# Print coeffs
+print(coeffs)
+
+# Assign each of the coeffs
+ic_0_15, ic_15_30, ic_30_45, slope = coeffs
+
+
+
+# Extract the model coefficients, coeffs
+coeffs = mdl_price_vs_both.params
+
+# Assign each of the coeffs
+ic_0_15, ic_15_30, ic_30_45, slope = coeffs
+
+# Create the parallel slopes plot
+plt.axline(xy1=(0, ic_0_15), slope=slope, color="green")
+plt.axline(xy1=(0, ic_15_30), slope=slope, color="orange")
+plt.axline(xy1=(0, ic_30_45), slope=slope, color="blue")
+sns.scatterplot(x="n_convenience",
+                y="price_twd_msq",
+                hue="house_age_years",
+                data=taiwan_real_estate)
+
+# Add the predictions in black
+sns.scatterplot(x="n_convenience",
+y="price_twd_msq",
+color="black",
+data=prediction_data)
+
+plt.show()
