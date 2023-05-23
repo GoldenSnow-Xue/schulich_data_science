@@ -1,0 +1,57 @@
+# Get the coefficients from mdl_price_vs_both_inter
+coeffs = mdl_price_vs_both_inter.params
+
+# Assign each of the elements of coeffs
+ic_0_15, ic_15_30, ic_30_45, slope_0_15, slope_15_30, slope_30_45 = coeffs
+
+
+
+# Get the coefficients from mdl_price_vs_both_inter
+coeffs = mdl_price_vs_both_inter.params
+
+# Assign each of the elements of coeffs
+ic_0_15, ic_15_30, ic_30_45, slope_0_15, slope_15_30, slope_30_45 = coeffs
+
+# Create conditions
+conditions = [
+    explanatory_data["house_age_years"] == "0 to 15",
+    explanatory_data["house_age_years"] == "15 to 30",
+    explanatory_data["house_age_years"] == "30 to 45"
+]
+
+# Create intercept_choices
+intercept_choices = [ic_0_15, ic_15_30, ic_30_45]
+
+# Create slope_choices
+slope_choices = [slope_0_15, slope_15_30, slope_30_45]
+
+
+
+# Get the coefficients from mdl_price_vs_both_inter
+coeffs = mdl_price_vs_both_inter.params
+
+# Assign each of the elements of coeffs
+ic_0_15, ic_15_30, ic_30_45, slope_0_15, slope_15_30, slope_30_45 = coeffs
+
+# Create conditions
+conditions = [
+    explanatory_data["house_age_years"] == "0 to 15",
+    explanatory_data["house_age_years"] == "15 to 30",
+    explanatory_data["house_age_years"] == "30 to 45"
+]
+
+# Create intercept_choices
+intercept_choices = [ic_0_15, ic_15_30, ic_30_45]
+
+# Create slope_choices
+slope_choices = [slope_0_15, slope_15_30, slope_30_45]
+
+# Create intercept and slope
+intercept = np.select(conditions, intercept_choices)
+slope = np.select(conditions, slope_choices)
+
+# Create prediction_data with columns intercept and price_twd_msq
+prediction_data = explanatory_data.assign(price_twd_msq = intercept + slope * explanatory_data["n_convenience"])
+
+# Print it
+print(prediction_data)
