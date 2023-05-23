@@ -1,0 +1,25 @@
+# Print the coeffs of determination for mdl_price_vs_conv
+print("rsquared_conv: ", mdl_price_vs_conv.rsquared)
+print("rsquared_adj_conv: ", mdl_price_vs_conv.rsquared_adj)
+
+# Print the coeffs of determination for mdl_price_vs_age
+print("rsquared_age: ", mdl_price_vs_age.rsquared)
+print("rsquared_adj_age: ", mdl_price_vs_age.rsquared_adj)
+
+# Print the coeffs of determination for mdl_price_vs_both
+print("rsquared_both: ", mdl_price_vs_both.rsquared)
+print("rsquared_adj_both: ", mdl_price_vs_both.rsquared_adj)
+
+
+
+# Print the RSE for mdl_price_vs_conv
+rse_conv=np.sqrt(mdl_price_vs_conv.mse_resid)
+print("rse_conv: ", rse_conv)
+
+# Print the RSE for mdl_price_vs_age
+rse_age=np.sqrt(mdl_price_vs_age.mse_resid)
+print("rse_age: ", rse_age)
+
+# Print RSE for mdl_price_vs_both
+rse_both=np.sqrt(mdl_price_vs_both.mse_resid)
+print("rse_both: ", rse_both)
