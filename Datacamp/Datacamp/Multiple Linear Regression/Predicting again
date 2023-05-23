@@ -1,0 +1,43 @@
+import numpy as np
+# Create n_convenience as an array of numbers from 0 to 10
+n_convenience = np.arange(0,11)
+
+# Create sqrt_dist_to_mrt_m as an array of numbers from 0 to 80 in steps of 10
+sqrt_dist_to_mrt_m = np.arange(0,81,10)
+
+# Create house_age_years with unique values
+house_age_years = taiwan_real_estate["house_age_years"].unique()
+
+# Create p as all combinations of n_convenience, sqrt_dist_to_mrt_m, and house_age_years, in that order
+p = product(n_convenience, sqrt_dist_to_mrt_m, house_age_years)
+
+# Transform p to a DataFrame and name the columns
+explanatory_data = pd.DataFrame(p, columns=["n_convenience","sqrt_dist_to_mrt_m","house_age_years"])
+
+# See the result
+print(explanatory_data)
+
+
+
+# Create n_convenience as an array of numbers from 0 to 10
+n_convenience = np.arange(0, 11)
+
+# Create sqrt_dist_to_mrt_m as an array of numbers from 0 to 80 in steps of 10
+sqrt_dist_to_mrt_m = np.arange(0, 81, 10)
+
+# Create house_age_years with unique values
+house_age_years = taiwan_real_estate["house_age_years"].unique()
+
+# Create p as all combinations of n_convenience, sqrt_dist_to_mrt_m, and house_age_years, in that order
+p = product(n_convenience, sqrt_dist_to_mrt_m, house_age_years)
+
+# Transform p to a DataFrame and name the columns
+explanatory_data = pd.DataFrame(p, columns=["n_convenience",
+                                            "sqrt_dist_to_mrt_m",
+                                            "house_age_years"])
+
+# Add column of predictions
+prediction_data = explanatory_data.assign(price_twd_msq = mdl_price_vs_all_3_way_inter.predict(explanatory_data))
+
+# See the result
+print(prediction_data)
