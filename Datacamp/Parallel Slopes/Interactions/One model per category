@@ -1,0 +1,33 @@
+# Filter for rows where house age is 0 to 15 years
+taiwan_0_to_15 = taiwan_real_estate[taiwan_real_estate["house_age_years"] == "0 to 15"]
+
+# Filter for rows where house age is 15 to 30 years
+taiwan_15_to_30 = taiwan_real_estate[taiwan_real_estate["house_age_years"] == "15 to 30"]
+
+# Filter for rows where house age is 30 to 45 years
+taiwan_30_to_45 = taiwan_real_estate[taiwan_real_estate["house_age_years"] == "30 to 45"]
+
+
+
+# Filter for rows where house age is 0 to 15 years
+taiwan_0_to_15 = taiwan_real_estate[taiwan_real_estate["house_age_years"] == "0 to 15"]
+
+# Filter for rows where house age is 15 to 30 years
+taiwan_15_to_30 = taiwan_real_estate[taiwan_real_estate["house_age_years"] == "15 to 30"]
+
+# Filter for rows where house age is 30 to 45 years
+taiwan_30_to_45 = taiwan_real_estate[taiwan_real_estate["house_age_years"] == "30 to 45"]
+
+# Model price vs. no. convenience stores using 0 to 15 data
+mdl_0_to_15 = ols("price_twd_msq ~ n_convenience", data=taiwan_0_to_15).fit()
+
+# Model price vs. no. convenience stores using 15 to 30 data
+mdl_15_to_30 = ols("price_twd_msq ~ n_convenience", data=taiwan_15_to_30).fit()
+
+# Model price vs. no. convenience stores using 30 to 45 data
+mdl_30_to_45 = ols("price_twd_msq ~ n_convenience", data=taiwan_30_to_45).fit()
+
+# Print the coefficients
+print(mdl_0_to_15.params)
+print(mdl_15_to_30.params)
+print(mdl_30_to_45.params)
