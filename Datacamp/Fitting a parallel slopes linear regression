@@ -1,0 +1,15 @@
+# Import ols from statsmodels.formula.api
+from statsmodels.formula.api import ols
+
+# Fit a linear regression of price_twd_msq vs. n_convenience
+mdl_price_vs_conv = ols("price_twd_msq ~ n_convenience",
+                        data=taiwan_real_estate).fit()
+
+# Fit a linear regression of price_twd_msq vs. house_age_years, no intercept
+mdl_price_vs_age = ols("price_twd_msq ~ house_age_years + 0", data=taiwan_real_estate).fit()
+
+# Fit a linear regression of price_twd_msq vs. n_convenience plus house_age_years, no intercept
+mdl_price_vs_both = ols("price_twd_msq ~ n_convenience + house_age_years + 0", data=taiwan_real_estate).fit()
+
+# Print the coefficients
+print(mdl_price_vs_both.params)
