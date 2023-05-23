@@ -1,0 +1,22 @@
+# Create explanatory_data, setting no. of conv stores from  0 to 10
+explanatory_data = pd.DataFrame(
+    {"n_convenience": np.arange(0,11,1)}
+)
+print(explanatory_data)
+
+
+
+# Create explanatory_data, setting no. of conv stores from  0 to 10
+explanatory_data = pd.DataFrame({'n_convenience': np.arange(0, 11)})
+
+# Add column of predictions using "0 to 15" model and explanatory data 
+prediction_data_0_to_15 = explanatory_data.assign(price_twd_msq = mdl_0_to_15.predict(explanatory_data), house_age_years = "ic_0_15")
+
+# Same again, with "15 to 30"
+prediction_data_15_to_30 = explanatory_data.assign(price_twd_msq = mdl_15_to_30.predict(explanatory_data), house_age_years = "ic_15_30")
+
+# Same again, with "30 to 45"
+prediction_data_30_to_45 = explanatory_data.assign(price_twd_msq = mdl_30_to_45.predict(explanatory_data), house_age_years = "ic_30_45")
+print(prediction_data_0_to_15)
+print(prediction_data_15_to_30)
+print(prediction_data_30_to_45)
