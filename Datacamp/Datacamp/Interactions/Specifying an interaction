@@ -1,0 +1,15 @@
+# Model price vs both with an interaction using "times" syntax
+mdl_price_vs_both_inter = ols("price_twd_msq ~ house_age_years * n_convenience", data=taiwan_real_estate).fit()
+
+# Print the coefficients
+print(mdl_price_vs_both_inter.params)
+
+
+
+# Model price vs. both with an interaction using "colon" syntax
+mdl_price_vs_both_inter = ols("price_twd_msq ~ n_convenience + house_age_years + n_convenience:house_age_years",
+                              data=taiwan_real_estate).fit()
+
+# Print the coefficients
+print(mdl_price_vs_both_inter.params)
+
