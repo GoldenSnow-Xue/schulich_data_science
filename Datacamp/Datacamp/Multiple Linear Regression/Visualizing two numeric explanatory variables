@@ -1,0 +1,8 @@
+# Create scatter plot of taiwan_real_estate
+sns.scatterplot(x="n_convenience", y="sqrt_dist_to_mrt_m", data=taiwan_real_estate, hue="price_twd_msq")
+
+# Create scatter plot of prediction_data without legend
+sns.scatterplot(x="n_convenience", y="sqrt_dist_to_mrt_m", data=prediction_data, hue="price_twd_msq", legend=False, marker="s") #for squares
+
+# Show the plot
+plt.show()
