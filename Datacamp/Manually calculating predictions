@@ -1,0 +1,19 @@
+# Define conditions
+conditions = [
+	explanatory_data["house_age_years"] == "0 to 15",
+	explanatory_data["house_age_years"] == "15 to 30",
+	explanatory_data["house_age_years"] == "30 to 45"
+]
+
+# Define choices
+choices = [ic_0_15, ic_15_30, ic_30_45]
+
+# Create array of intercepts for each house_age_year category
+intercept = np.select(conditions, choices)
+
+# Create prediction_data with columns intercept and price_twd_msq
+prediction_data = explanatory_data.assign(
+			      intercept= np.select(conditions, choices),
+  			      price_twd_msq = intercept + slope * explanatory_data["n_convenience"])
+
+print(prediction_data)
