@@ -1,0 +1,26 @@
+# Model price vs. house age plus an interaction, no intercept
+mdl_readable_inter = ols("price_twd_msq ~ house_age_years + house_age_years:n_convenience +0", data=taiwan_real_estate).fit()
+
+# Print the coefficients for mdl_0_to_15
+print("mdl_0_to_15 coefficients:", "\n", mdl_0_to_15.params)
+
+# Print the coefficients for mdl_15_to_30
+print("mdl_15_to_30 coefficients:", "\n", mdl_15_to_30.params)
+
+# Print the coefficients for mdl_30_to_45
+print("mdl_30_to_45 coefficients:", "\n", mdl_30_to_45.params)
+
+# Print the coefficients for mdl_readable_inter
+print("\n", "mdl_readable_inter coefficients:", "\n", mdl_readable_inter.params)
+
+
+
+
+ mdl_readable_inter coefficients: 
+ house_age_years[0 to 15]                   9.242
+house_age_years[15 to 30]                  6.872
+house_age_years[30 to 45]                  8.113
+house_age_years[0 to 15]:n_convenience     0.834
+house_age_years[15 to 30]:n_convenience    0.852
+house_age_years[30 to 45]:n_convenience    0.669
+dtype: float64
