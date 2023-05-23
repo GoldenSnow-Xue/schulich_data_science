@@ -1,0 +1,9 @@
+import numpy as np
+# Transform dist_to_mrt_m to sqrt_dist_to_mrt_m
+taiwan_real_estate["sqrt_dist_to_mrt_m"] = np.sqrt(taiwan_real_estate["dist_to_mrt_m"])
+
+# Draw a scatter plot of sqrt_dist_to_mrt_m vs. n_convenience colored by price_twd_msq
+sns.scatterplot(x="n_convenience", y="sqrt_dist_to_mrt_m", data=taiwan_real_estate,hue="price_twd_msq")
+
+# Show the plot
+plt.show()
