@@ -1,0 +1,25 @@
+# Take a glimpse at the dataset
+print(auctions.info())
+
+# Model price vs. opening bid using auctions
+mdl_price_vs_openbid = ols("price ~ openbid", data=auctions).fit()
+
+# See the result
+print(mdl_price_vs_openbid.params)
+
+
+
+# Take a glimpse at the dataset
+print(auctions.info())
+
+# Model price vs. opening bid using auctions
+mdl_price_vs_openbid = ols("price ~ openbid", data = auctions).fit()
+
+# See the result
+print(mdl_price_vs_openbid.params)
+
+# Plot the scatter plot pf price vs. openbid with a linear trend line
+sns.regplot(x="openbid", y="price", data=auctions, ci=None)
+
+# Show the plot
+plt.show()
