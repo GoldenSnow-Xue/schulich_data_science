@@ -1,0 +1,29 @@
+# Plot the trend lines of price_twd_msq vs. n_convenience for each house age category
+sns.lmplot(x="n_convenience",
+     y="price_twd_msq",
+     data=taiwan_real_estate,
+     hue="house_age_years",
+     ci=None,
+     legend_out=False)
+
+plt.show()
+
+
+
+# Plot the trend lines of price_twd_msq vs. n_convenience for each house age category
+sns.lmplot(x="n_convenience",
+           y="price_twd_msq",
+           data=taiwan_real_estate,
+           hue="house_age_years",
+           ci=None,
+           legend_out=False)
+
+# Add a scatter plot for prediction_data
+sns.scatterplot(x="n_convenience",
+y="price_twd_msq",
+data=prediction_data,
+hue="house_age_years",
+ci=None,
+     legend=False)
+
+plt.show()
