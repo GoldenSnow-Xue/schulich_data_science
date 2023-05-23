@@ -1,0 +1,12 @@
+# Prepare the grid using taiwan_real_estate, for each house age category, colored by price_twd_msq
+grid = sns.FacetGrid(data=taiwan_real_estate,
+            col="house_age_years",
+            hue="price_twd_msq",
+            palette="plasma")
+
+# Plot the scatterplots with sqrt_dist_to_mrt_m on the x-axis and n_convenience on the y-axis
+grid.map(sns.scatterplot,
+    "sqrt_dist_to_mrt_m","n_convenience")
+
+# Show the plot (brighter colors mean higher prices)
+plt.show()
