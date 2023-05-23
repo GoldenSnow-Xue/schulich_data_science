@@ -1,0 +1,28 @@
+# Fit linear regression of price vs. no. of conv. stores and sqrt dist. to nearest MRT, no interaction
+mdl_price_vs_conv_dist = ols("price_twd_msq ~ n_convenience + sqrt_dist_to_mrt_m", data=taiwan_real_estate).fit()
+
+# See the result
+print(mdl_price_vs_conv_dist.params)
+
+
+
+# Fit linear regression of price vs. no. of conv. stores and sqrt dist. to nearest MRT, no interaction
+mdl_price_vs_conv_dist = ols("price_twd_msq ~ n_convenience + sqrt_dist_to_mrt_m", data=taiwan_real_estate).fit()
+
+# Create n_convenience as an array of numbers from 0 to 10
+n_convenience = np.arange(0,11,1)
+
+# Create sqrt_dist_to_mrt_m as an array of numbers from 0 to 80 in steps of 10
+sqrt_dist_to_mrt_m = np.arange(0,81,10)
+
+# Create p as all combinations of values of n_convenience and sqrt_dist_to_mrt_m
+p = product(n_convenience, sqrt_dist_to_mrt_m)
+
+# Transform p to a DataFrame and name the columns
+explanatory_data = pd.DataFrame(p, columns=["n_convenience", "sqrt_dist_to_mrt_m"])
+
+# Add column of predictions
+prediction_data = explanatory_data.assign(price_twd_msq = mdl_price_vs_conv_dist.predict(explanatory_data))
+
+# See the result  
+print(prediction_data)
