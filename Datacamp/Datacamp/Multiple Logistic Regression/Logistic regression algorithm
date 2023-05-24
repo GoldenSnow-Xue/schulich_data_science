@@ -1,0 +1,38 @@
+# Complete the function
+def calc_neg_log_likelihood(coeffs):
+    # Unpack coeffs
+    intercept, slope = coeffs
+
+    # Calculate predicted y-values
+    y_pred = logistic.cdf(intercept + slope * x_actual)
+    # Calculate log-likelihood
+    log_likelihood = np.log(y_pred) * y_actual + np.log(1 - y_pred) * (1 - y_actual)
+    # Calculate negative sum of log_likelihood
+    neg_sum_ll = -np.sum(log_likelihood)
+    # Return negative sum of log_likelihood
+    return neg_sum_ll
+
+# Test the function with intercept 10 and slope 1
+print(calc_neg_log_likelihood([10, 1]))
+
+
+
+# Complete the function
+def calc_neg_log_likelihood(coeffs):
+    # Unpack coeffs
+    intercept, slope = coeffs
+    # Calculate predicted y-values
+    y_pred = logistic.cdf(intercept + slope * x_actual)
+    # Calculate log-likelihood
+    log_likelihood = np.log(y_pred) * y_actual + np.log(1 - y_pred) * (1 - y_actual)
+    # Calculate negative sum of log_likelihood
+    neg_sum_ll = -np.sum(log_likelihood)
+    # Return negative sum of log_likelihood
+    return neg_sum_ll
+  
+# Call minimize on calc_sum_of_squares  
+print(minimize(fun=calc_neg_log_likelihood,
+              x0=[0, 0]))
+
+# Compare the output with the logit() call.
+print(logit("has_churned ~ time_since_last_purchase", data=churn).fit().params)
