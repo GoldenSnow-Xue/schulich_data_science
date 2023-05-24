@@ -1,0 +1,45 @@
+# Create p ranging from minus 0.001 to 0.999 in steps of 0.001
+p = np.arange(0.001, 1, 0.001)
+
+# Create logistic_dist_inv
+logistic_dist_inv = pd.DataFrame({"p": p,
+                                  "logit": logistic.ppf(p),
+                                  "logit_man": np.log(p / (1 - p))})
+
+# Check that each logistic function gives the same results
+print(np.array_equal(logistic_dist_inv["logit"], logistic_dist_inv["logit_man"]))
+
+
+
+# Create p ranging from minus 0.001 to 0.999 in steps of 0.001
+p = np.arange(0.001, 1, 0.001)
+
+# Create logistic_dist_inv
+logistic_dist_inv = pd.DataFrame({"p": p,
+                                  "logit": logistic.ppf(p),
+                                  "logit_man": np.log(p / (1 - p))})
+
+# Using logistic_dist_inv, plot logit vs. p
+sns.lineplot(x="p", y="logit", data=logistic_dist_inv)
+
+# Show the plot
+plt.show()
+
+
+
+# Create p ranging from minus 0.001 to 0.999 in steps of 0.001
+p = np.arange(0.001, 1, 0.001)
+
+# Create logistic_dist_inv
+logistic_dist_inv = pd.DataFrame({"p": p,
+                                  "logit": logistic.ppf(p),
+                                  "logit_man": np.log(p / (1 - p))})
+
+# Using logistic_dist_inv, plot logit vs. p
+sns.lineplot(x="p", y="logit", data=logistic_dist_inv)
+
+# Show the plot
+plt.show()
+
+
+
