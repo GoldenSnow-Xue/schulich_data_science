@@ -1,0 +1,32 @@
+# Using churn, plot recency vs. length of relationship, colored by churn status
+sns.scatterplot(x="time_since_first_purchase",
+                y="time_since_last_purchase",
+                data=churn, 
+                hue="has_churned")
+
+# Using prediction_data, plot recency vs. length of relationship, colored by most_likely_outcome
+____(____,
+     alpha=0.2,
+     legend=False)
+
+# Show the plot
+plt.show()
+
+
+
+# Using churn, plot recency vs. length of relationship,
+# colored by churn status
+sns.scatterplot(x="time_since_first_purchase",
+                y="time_since_last_purchase",
+                data=churn, 
+                hue="has_churned")
+
+# Using prediction_data, plot recency vs. length of relationship,
+# colored by most_likely_outcome
+sns.scatterplot(x="time_since_first_purchase",
+                y="time_since_last_purchase",data=prediction_data, hue='most_likely_outcome',
+     alpha=0.2,
+     legend=False)
+
+# Show the plot
+plt.show()
