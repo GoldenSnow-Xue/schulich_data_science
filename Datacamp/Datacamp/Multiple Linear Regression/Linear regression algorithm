@@ -1,0 +1,37 @@
+# Complete the function
+def calc_sum_of_squares(coeffs):
+    # Unpack coeffs
+    intercept, slope = coeffs
+    # Calculate predicted y-values
+    y_pred = intercept + slope * x_actual
+    # Calculate differences between y_pred and y_actual
+    y_diff = y_pred - y_actual
+    # Calculate sum of squares
+    sum_sq = np.sum(y_diff ** 2)
+    # Return sum of squares
+    return sum_sq
+  
+# Test the function with intercept 10 and slope 1
+print(calc_sum_of_squares([10, 1]))
+
+
+
+# Complete the function
+def calc_sum_of_squares(coeffs):
+    # Unpack coeffs
+    intercept, slope = coeffs
+    # Calculate predicted y-values
+    y_pred = intercept + slope * x_actual
+    # Calculate differences between y_actual and y_pred
+    y_diff = y_pred - y_actual
+    # Calculate sum of squares
+    sum_sq = np.sum(y_diff ** 2)
+    # Return sum of squares
+    return sum_sq
+
+# Call minimize on calc_sum_of_squares  
+print(minimize(fun=calc_sum_of_squares,
+               x0=[0, 0]))
+
+# Compare the output with the ols() call.
+print(ols("price_twd_msq ~ n_convenience", data=taiwan_real_estate).fit().params)
