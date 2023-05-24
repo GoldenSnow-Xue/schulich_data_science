@@ -1,0 +1,40 @@
+# Import logistic
+from scipy.stats import logistic
+
+# Create x ranging from minus ten to ten in steps of 0.1
+x = np.arange(-10, 10.1, .1)
+
+
+
+# Import logistic
+from scipy.stats import logistic
+
+# Create x ranging from minus ten to ten in steps of 0.1
+x = np.arange(-10, 10.1, 0.1)
+
+# Create logistic_dist
+logistic_dist = pd.DataFrame({"x": x,
+                              "log_cdf": logistic.cdf(x),
+                              "log_cdf_man": 1 / (1 + np.exp(-x))})
+
+# Check that each logistic function gives the same results
+print(np.array_equal(logistic_dist["log_cdf_man"], logistic_dist["log_cdf_man"]))
+
+
+
+# Import logistic
+from scipy.stats import logistic
+
+# Create x ranging from minus ten to ten in steps of 0.1
+x = np.arange(-10, 10.1, 0.1)
+
+# Create logistic_dist
+logistic_dist = pd.DataFrame({"x": x,
+                              "log_cdf": logistic.cdf(x),
+                              "log_cdf_man": 1 / (1 + np.exp(-x))})
+
+# Using logistic_dist, plot log_cdf vs. x
+sns.lineplot(x="x", y="log_cdf", data=logistic_dist)
+
+# Show the plot
+plt.show()
