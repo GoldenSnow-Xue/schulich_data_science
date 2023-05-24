@@ -1,0 +1,8 @@
+# Import logit
+from statsmodels.formula.api import logit
+
+# Fit a logistic regression of churn status vs. length of relationship, recency, and an interaction
+mdl_churn_vs_both_inter = logit("has_churned ~ time_since_first_purchase * time_since_last_purchase", data=churn).fit()
+
+# Print the coefficients
+print(mdl_churn_vs_both_inter.params)
