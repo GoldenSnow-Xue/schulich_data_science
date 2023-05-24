@@ -1,0 +1,42 @@
+import numpy as np
+import pandas as pd
+from itertools import product
+# Create time_since_first_purchase
+time_since_first_purchase = np.arange(-2,4.1,0.1)
+
+# Create time_since_last_purchase
+time_since_last_purchase = np.arange(-1,6.1,0.1)
+
+# Create p as all combinations of values of time_since_first_purchase and time_since_last_purchase
+p = product(time_since_first_purchase,time_since_last_purchase)
+
+# Transform p to a DataFrame and name the columns
+explanatory_data = pd.DataFrame(p, columns=["time_since_first_purchase",
+                                            "time_since_last_purchase"])
+
+# Print the result
+print(explanatory_data)
+
+
+
+# Create time_since_first_purchase
+time_since_first_purchase = np.arange(-2, 4.1, 0.1)
+
+# Create time_since_last_purchase
+time_since_last_purchase = np.arange(-1, 6.1, 0.1)
+
+# Create p as all combinations of values of time_since_first_purchase and time_since_last_purchase
+p = product(time_since_first_purchase, time_since_last_purchase)
+
+# Transform p to a DataFrame and name the columns
+explanatory_data = pd.DataFrame(p, columns=["time_since_first_purchase",
+                                            "time_since_last_purchase"])
+
+# Create prediction_data
+prediction_data = explanatory_data.assign(has_churned = mdl_churn_vs_both_inter.predict(explanatory_data))
+
+# Create most_likely_outcome
+prediction_data["most_likely_outcome"] = np.round(prediction_data["has_churned"])
+
+# See the result
+print(prediction_data)
