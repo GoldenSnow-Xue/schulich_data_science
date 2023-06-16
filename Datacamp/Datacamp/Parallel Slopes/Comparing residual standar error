@@ -1,0 +1,11 @@
+# Print the RSE for mdl_price_vs_conv
+rse_conv=np.sqrt(mdl_price_vs_conv.mse_resid)
+print("rse_conv: ", rse_conv)
+
+# Print the RSE for mdl_price_vs_age
+rse_age=np.sqrt(mdl_price_vs_age.mse_resid)
+print("rse_age: ", rse_age)
+
+# Print RSE for mdl_price_vs_both
+rse_both=np.sqrt(mdl_price_vs_both.mse_resid)
+print("rse_both: ", rse_both)
