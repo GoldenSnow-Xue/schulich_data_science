@@ -1,0 +1,35 @@
+# Introduction to ensemble methods
+# Scikit-learn
+# numpy
+# pandas
+# seaborn
+
+from sklearn.ensemble import MetaEstimator
+# Base estimators
+est1 = Model1()
+est2 = Model2()
+estN = ModelN()
+# Meta estimator
+est_combined = MetaEstimator(
+    estimators=[est1, est2, ..., estN],
+    # Additional parameters
+)
+# Train and test
+est_combined.fit(X_train, y_train)
+
+pred = est_combined.predict(X_test)
+
+
+
+# Split into train (80%) and test (20%) sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Instantiate the regressor
+reg_dt = DecisionTreeRegressor(min_samples_leaf=3, min_samples_split=9, random_state=500)
+
+# Fit to the training set
+reg_dt.fit(X_train, y_train)
+
+# Evaluate the performance of the model on the test set
+y_pred = reg_dt.predict(X_test)
+print('MAE: {:.3f}'.format(mean_absolute_error(y_test, y_pred)))
